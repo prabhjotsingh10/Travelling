@@ -1,0 +1,24 @@
+
+<div class="login_form">
+    <div class="login_form_cntnts">
+      {{#each messages}}
+        <div class="errors">{{this}}</div>
+      {{/each}}
+      <form action="/validation" method="POST">
+        <button class="fcbk_login"><i class="fab fa-facebook-f"></i> &nbsp; Login with Facebook</button>
+        <button class="google_login"><i class="fab fa-google-plus-g"> </i>&nbsp; Login with Google Plus</button>
+
+        <p class="or">or</p>
+
+        <input type="email" placeholder="Email Address" class="email" id="email" name="email">
+        <input type="password" placeholder="Password" class="pass" id="pass" name="pass">
+        <input type="checkbox" class="rmbr_me_chkbx"> <p class="rmbr_me">Remember Me</p> 
+        {{!-- <a class="show_pass">Show Password</a> --}}
+        <input type="submit" class="login_btn" value="LOG IN">
+        <a class="frgt_pass">Forgot Password?</a>
+        <hr>
+        <p class="signup_message">Don't Have an account? <a href="/sign_up" class="sign_up">Sign Up</a></p>
+      </form>
+    </div>
+
+  </div>

@@ -1,0 +1,72 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/room_listing.css">
+    <title>{{title}}</title>
+</head>
+
+    <h1 class="room_listing_heading">{{heading}}</h1 >
+    <div class="container">
+    {{#each rooms}}
+        <div class="card">
+            <img src="{{this.image}}" alt="" style="width: 100%;">
+            <div class="description">
+                <p>{{this.title}}</p><i class="fas fa-star"> {{this.rating}}</i>
+                <h2>{{this.description}}</h2>
+                <h4>Price Per Night: {{this.price}} $</h4>
+            </div>   
+        </div>
+{{!--     
+        <div class="card">
+            <img src="images/pic2.jpg" alt="" style="width: 100%;">
+            <div class="description">
+                <p>{{this.title}}</p> <i class="fas fa-star"> 3.0</i>
+                <h2>{{this.description}}</h2>
+            </div>
+            
+        </div> --}}
+    {{/each}}
+        {{!-- <div class="card">
+            <img src="images/pic3.jpg" alt="" style="width: 100%;">
+            <div class="description">
+                <p>Condo</p><i class="fas fa-star"> 4.8</i>
+                <h2>Beautiful 3 bedroom house in a nice and quiet area</h2>
+            </div>
+            
+        </div>
+
+        <div class="card">
+            <img src="images/pic2.jpg" alt="" style="width: 100%;">
+            <div class="description">
+                <p>Entire House</p> <i class="fas fa-star"> 4.0</i>
+                <h2> Executive Condo with 12ft ceiling & Private Entry</h2>
+            </div>
+            
+        </div>
+
+        <div class="card">
+            <img src="images/pic2.jpg" alt="" style="width: 100%;">
+            <div class="description">
+                <p>Entire House</p><i class="fas fa-star"> 3.5</i>
+                <h2>Modern and Rustic Urban Oasis in Downtown Toronto</h2>
+            </div>
+           
+        </div>
+
+        <div class="card">
+            <img src="images/pic2.jpg" alt="" style="width: 100%;">
+            <div class="description">
+                <p>Entire House</p><i class="fas fa-star"> 2.8</i>
+                <h2>CN Tower 2BD Condo Prime Location</h2>
+            </div>
+           
+        </div> --}}
+
+
+    </div>
+
+
+
+
+

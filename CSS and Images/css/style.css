@@ -1,0 +1,830 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display&display=swap');
+
+
+*{
+    margin:0;
+    padding: 0;
+}
+
+html{
+    font-family: 'Playfair Display', serif;;
+}
+
+nav{
+    list-style-type: none;
+    background-color: transparent;
+    height: 6em;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo{
+    display: inline;
+    position: absolute;
+    top: 2px;
+    left: 12px;
+    padding-top: 0.2em;
+}
+
+.menu_list{
+    display: flex;
+    place-content: space-evenly;
+    list-style-type:none ;
+    padding-top: 2em;
+    margin-left: 6em;
+}
+
+.menu_list li a{
+    margin-right: 1em;
+}
+
+.visible{
+    display: block;
+}
+
+.background{
+    margin-top: 0em;
+    background-color: #42378f;
+    background-image: linear-gradient(315deg, #42378f 0%, #f53844 74%);
+}
+
+.background-home{
+    margin-top: 0em;
+    background-image: url("../images/backnew2.jpg");
+    background-size: cover;
+    padding-bottom:9em ;
+}
+
+ .main-area{
+    margin-left: 2em;
+    padding-top: 5em;    
+} 
+
+.logo{
+    display: inline-block;
+}
+
+.header a{
+    color: whitesmoke;
+    transition: all 0.3s ease-in;
+    font-size: 1.3rem
+}
+
+.header a:hover{
+    font-size: 1.1rem;
+    color: gray;
+}
+
+.header a{
+    text-decoration: none;
+}
+
+/******************* BOOKING FORM **********************/
+
+.booking-form{
+    border: 1px solid black;
+    margin: 0em 2em;
+    max-width: 30em;
+    border-radius: 1em;
+    background-color: white;
+    color: black;
+
+}
+
+.booking_form_article{
+    margin: 2em;
+
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2px;
+}
+
+.submit_btn{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1em;
+    margin-bottom: 0em;
+    border-radius: 5px;
+    background-color:#FF5A5F;
+    color: white;
+    padding: 0.6em;
+    text-shadow: none;
+}
+
+.submit_btn:hover{
+    cursor: pointer;
+    background-color: lightsalmon;
+    color: black;
+}
+
+.tagline-div, .tagline-div h2{
+    margin-bottom: 1em;
+}
+
+#destination{
+    margin-top: 1em;
+}
+
+.check_in, .check_out
+{
+    margin-bottom: 0.5em;
+}
+
+ .check_in_input, .check_out_input{
+    margin-bottom: 1em;
+}
+
+.guest_menu{
+    margin-top: 1em;
+}
+
+/****************************LOGIN FORM ******************************/
+
+input[type="email"]{
+    width: 93%;
+    padding: 1em;
+    margin-bottom: 1em;
+}
+
+input[type="password"]{
+    width: 93%;
+    padding: 1em;
+}
+
+input[type="text"]{
+    display: block;
+    width: auto;
+    padding: 1em;
+}
+
+.fcbk_login{
+    border-radius: 0.8em;
+    width: 100%;
+    padding: 1em;
+    color: white;
+    background-color: rgb(66,103,178);
+    font-size: 1em;
+    font-family: 'Playfair Display'
+}
+
+.google_login{
+    border-radius: 0.8em;
+    width: 100%;
+    padding: 1em;
+    color: black;
+    background-color: whitesmoke;
+    font-size: 1em;
+    margin: 0.5em 0em;
+    font-family: 'Playfair Display'
+}
+
+.fcbk_login:hover{
+    background-color: blue;
+    cursor: pointer;    
+}
+
+.google_login:hover{
+    background-color: lightyellow;
+    cursor: pointer;    
+}
+
+.or{
+   text-align: center;
+   margin-bottom: 1em;
+}
+
+.login_form{
+    display: flex;
+    justify-content: center;
+    margin: 2em 0em;
+}
+.login_form_cntnts{
+    max-width: 35em;
+    border: 1px solid lightgray;
+    padding: 2em 4em;
+} 
+
+.login_btn{
+    width: 100%;
+    margin-top: 1em;
+    padding: 1em;
+    font-family: 'Playfair Display';
+    background-color: #FF5A5F;
+    font-weight: bold;
+    color:whitesmoke;
+}
+
+.login_btn:hover{
+    background-color: rgb(255, 51, 57);
+    cursor: pointer;
+}
+
+.rmbr_me_chkbx{
+    background-color: rgb(66,103,178);
+    display: inline-block;
+    margin-top: 2em;
+}
+
+.rmbr_me{
+    display: inline-block;
+}
+
+.rmbr_me_chkbx{
+    cursor: pointer;
+}
+
+.frgt_pass{
+    display: block;
+    text-align: center;
+    margin: 1em 0em;
+    font-size: 0.9em;
+    color: #0E8B8F;
+    font-weight: bold;
+}
+
+.frgt_pass:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.email,.pass{
+    font-size: 1em;
+    font-family: 'Playfair-display';
+    display: block;
+}
+
+.signup_message{
+    margin-top: 1em;
+}
+
+.sign_up{
+    padding-left: 0.2em;
+    text-decoration: none;
+    color:#0E8B8F;
+    font-weight: bold;
+}
+
+.sign_up:hover{
+    text-decoration: underline;
+}
+
+/****************** HOME PAGE ************************/
+
+.check_in_input,.check_out_input{
+    width: 91%;
+    padding:0.5em;
+    font-size: 0.9em;
+    font-family: 'Playfair-display';
+}
+
+#destination,.guest_menu{
+    width: 100%;
+    padding:0.5em;
+    font-size: 1em;
+    font-family: 'Playfair-display';
+}
+
+/************************************* SIGN UP PAGE ************************************************/
+
+.usr_rg{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.usr_rg_cntnts{
+    background-color: white;
+    padding: 2em 4em;
+    max-width: 35em;
+    border: 1px solid lightgray;
+    margin: 2em 0em;
+}
+
+.fb_usr_frm, .ggl_usr_frm{
+    color: #0E8B8F;
+    text-decoration: none;
+}
+
+.fb_usr_frm:hover, .ggl_usr_frm:hover{
+    text-decoration: underline;
+}
+
+#emailError, #passwordError{
+    margin: 1em 0em;
+    color: red;
+    font-size: 0.8em;
+}
+
+.frst_nme, .lst_nme {
+    width: 93%;
+    padding: 1em;
+    margin:1em 0em;
+    font-family: 'Playfair Display';
+}
+
+#ph_No{
+    width: 93%;
+    padding: 1em;
+    margin:1em 0em;
+    font-family: 'Playfair Display';
+}
+
+.psswrd, .usr_rg_eml{
+    margin: 0.8em 0em;
+    font-family: 'Playfair Display';
+}
+
+.sgn_up_mssg{
+    text-align: center;
+    margin-bottom: 1em;
+    font-size: 1.3em;
+    font-family: 'Playfair Display';
+}
+
+.brthdy{
+    width: 93%;
+    padding: 1em;
+    margin-top: 1em;
+}
+
+.brthdy_mssg{
+    font-size: 1em;
+    margin: 0.6em 0em;
+    line-height: 1.4em;
+}
+
+.sign_up_btn{
+    display: block;
+    width: 50%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 1em;
+    font-family: 'Playfair Display';
+    background-color: #FF5A5F;
+    font-weight: bold;
+    color:whitesmoke;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}
+
+.sign_up_btn:hover{
+    background-color: #f53844;
+}
+
+.login_message{
+    margin-top: 1em;
+}
+
+.login_link{
+    color: #0E8B8F;
+    text-decoration: none;
+}
+
+.login_link:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/************** Promotional Content *****************/
+
+.explore{
+    margin: 3em 2em;;
+}
+
+.explore_tagline{
+    margin-bottom: 1em;
+}
+
+.stays_adv_exp_parent_div{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1em;
+    margin: 0em 2em;
+}
+
+.stays_div, .adv_div,.exp_div{
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 0.5em;
+    height: 6em;
+}
+
+.stays_div:hover, .adv_div:hover,.exp_div:hover{
+    box-shadow: 5px 10px 5px lightgray;
+    transition: ease-in-out 0.4s;
+    cursor: pointer;
+}
+
+.stays_message h2, .adv_message h2, .exp_message h2{
+    margin-top: 1.5em;
+}
+
+.places_to_stay{
+    margin-top: 4em; 
+    margin-left: 2em;
+    
+}
+
+.places_to_stay p{
+    margin-top: 1em;
+}
+
+.places_to_stay_image{
+   margin: 1em 0em;
+   margin-left: 2em;
+   height: 35em;
+   max-width: 91em;
+   background-image: url('../images/places-to-stay-image.jpg');
+   background-size: cover;
+   background-repeat: no-repeat;
+   text-align: center;
+}
+
+.places_to_stay_image button{
+   margin-top: 20em;
+   text-decoration: none;
+   padding: 1.2em 3em;
+   font-family: 'Playfair Display';
+   border:1.5px solid whitesmoke; 
+   background-color: transparent;
+   color: whitesmoke;
+   cursor: pointer;
+   font-size: 1em;
+   border-radius: 0.5em;
+}
+
+.places_to_stay_image button:hover{
+    background-color: whitesmoke;
+    color: black;
+    transition: ease-in 0.3s ;   
+}
+
+.room_listing_heading{
+    margin: 1em 0em;
+    text-align: center;
+}
+
+.errors{
+    color: red;
+}
+
+/*********************** FOOTER *******************************/
+
+.footer{
+    background-color: #F3F5F2;
+    /* margin-right: 2em;
+    margin-left: 3em; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 1em;
+}
+
+.newsletter{
+    margin: 1em 2em;
+}
+
+.newsletter h2{
+    color: #1b42cb;
+}
+
+.newsletter p{
+    margin-top: 1em;
+    color:#1b42cb;
+}
+
+.subscribe_button{
+    display: inline-block;
+    margin-top: 1em;
+    margin-left: 1em;
+    padding:0.4em;
+    background-color: transparent;
+    border: 1px solid lightslategray;
+    border-radius: 0.2em;
+    color: #1b42cb;
+}
+
+.subscribe_button:hover{
+    cursor: pointer;
+    background-color: white;
+    transition: ease-in-out 0.3s;
+}
+
+#email_input{  /*because id's are more specific in this case, the class was getting overridden due to the line of code for all the input boxes as text */
+    display: inline-block;
+    margin-top: 1em;
+    padding: 0.4em;
+    min-width: 14em;
+    margin-top: 2em;
+}
+
+.icons{
+    margin-top: 1em;
+    text-align: center;
+}
+
+.icons ul h2{
+    margin-right: 1.1em;
+    color: #1b42cb;
+}
+
+.icons ul li{
+    font-size: 1.5em;
+    list-style-type: none;
+    display: inline-block;
+    margin-right: 1.8em;
+    margin-left: 1em;
+    margin-top: 2em;
+}
+
+.icons ul li a i{
+    color: #0178fd;
+
+}
+
+.termsAndConditions{
+    text-align: center;
+    text-decoration: none;
+
+}
+
+.termsAndConditions li, .termsAndConditions li a{
+    list-style-type: none;
+    margin-top:0.5em;
+    text-decoration:none;
+    font-weight: bold;
+    color:#1b42cb;
+}
+
+.termsAndConditions li a:hover{
+    text-decoration: underline;
+}
+
+.copyrights{
+    margin: 0.5em ;
+    margin-left: 3em;
+    margin-right: 3em;
+    text-align: center;
+    padding: 1em;
+}
+
+/******************** BREAKPOINTS *******************************/
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+
+    
+    .stays_adv_exp_parent_div{
+        display: inline-block;
+        margin:0em 2em;
+    }
+
+    .stays_div, .adv_div , .exp_div{
+        margin-top: 1em;
+    }
+
+    .footer {
+        background-color: #F3F5F2;
+        display: inline-block;
+        padding: 1em;
+    }
+
+    .newsletter{
+        text-align: center;
+        margin: 2em 2em;
+    }
+
+    .termsAndConditions{
+        margin-bottom: 2em;
+    }
+
+}
+
+/********************* IPHONE 5/5S/SE ******************************/
+
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) { 
+
+    .main-area {
+        margin-left: 0em;
+        padding-top: 5em;
+    }
+
+    .booking-form {
+        border: 1px solid black;
+        margin: 0em 0.5em;
+        max-width: 30em;
+        border-radius: 1em;
+        background-color: white;
+        color: black;
+    }
+    
+     .check_in_input, .check_out_input {
+        width: 50%;
+        padding: 0.5em;
+        font-size: 0.9em;
+        font-family: 'Playfair-display';
+    } 
+    
+    nav {
+        list-style-type: none;
+        background-color: transparent;
+        height: auto;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .menu_list {
+        display: block;
+        place-content: space-evenly;
+        list-style-type: none;
+        padding-top: 0em;
+        margin-left: 10em;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .stays_adv_exp_parent_div {
+        display: inline-block;
+        margin: 0em 1em;
+    }
+}
+
+/******************* IPHONE 6/7/8 *****************************/
+
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) {
+    .check_in_input, .check_out_input {
+        width: 76%;
+        padding: 0.5em;
+        font-size: 0.9em;
+        font-family: 'Playfair-display';
+    }
+
+    .menu_list {
+        display: block;
+        place-content: space-evenly;
+        list-style-type: none;
+        /* padding-top: 2em; */
+        margin-left: 10em;
+    }
+
+    .booking-form {
+        border: 1px solid black;
+        margin: 0em 1em;
+        max-width: 30em;
+        border-radius: 1em;
+        background-color: white;
+        color: black;
+    }
+
+}
+
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px)  {
+
+    .places_to_stay_image {
+        margin: 1em 1em;
+        /* margin-left: 2em; */
+        height: 35em;
+        max-width: 91em;
+        background-image: url(../images/places-to-stay-image.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        text-align: center;
+    }
+}
+
+/******************** IPHONE X ***********************/
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 812px)
+and (-webkit-device-pixel-ratio : 3) {     
+
+    .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        
+    }
+
+    .menu_list{
+        display: block;
+        padding-top:0em ;
+        margin-left: 10em;
+    }
+
+    .header{
+        height: 11em;
+    }
+
+    .main-area{
+        margin-left: 0em;
+    }
+
+    .booking-form {
+        border: 1px solid black;
+        margin-left: 0em;
+        margin: 0em 0.5em;
+        max-width: 25em;
+        border-radius: 1em;
+        background-color: white;
+        color: black;
+    }
+
+    .explore{
+        margin: 3em 1em;
+    }
+
+    .stays_adv_exp_parent_div{
+        display: inline-block;
+        margin: 0em 1em;
+    }
+
+    .places_to_stay{
+        margin-left: 1em;
+    }
+
+    .places_to_stay_image{
+        margin: 1em;
+        height: 35em;
+        max-width: 91em;
+        background-image: url(../images/places-to-stay-image.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        text-align: center;
+    }
+
+    .icons ul li {
+        font-size: 1.5em;
+        list-style-type: none;
+        display: inline-block;
+        margin-right: 1em;
+        margin-left: 1em;
+        margin-top: 2em;
+    }
+
+    .signup_message {
+        margin-top: 2em;
+        text-align: center;
+    }
+
+    .usr_rg_cntnts {
+        background-color: white;
+        padding: 2em 2em;
+        max-width: 35em;
+        /* border: 1px solid lightgray; */
+        /* margin: 2em 0em; */
+    }
+
+    .login_message {
+        margin-top: 2em;
+        text-align: center;
+    }
+
+    .icons ul li {
+        font-size: 1.5em;
+        list-style-type: none;
+        display: inline-block;
+        margin-right: 1em;
+        margin-left: 1em;
+        margin-top: 2em;
+    }
+
+    .check_in_input, .check_out_input {
+        width: 94%;
+        padding: 0.5em;
+        font-size: 0.9em;
+        font-family: 'Playfair-display';
+    }
+
+
+    .card {
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        margin: 4em 0em;
+    }
+
+    .login_form_cntnts {
+        max-width: 35em;
+        border: 1px solid lightgray;
+        padding: 1em 2em;
+    }
+
+    }
+
+
+    
+
+    

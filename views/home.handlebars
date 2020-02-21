@@ -1,0 +1,120 @@
+<article class="background-home">
+
+  <article class="main-area">
+
+    <div class="booking-form">
+      <article class="booking_form_article">
+      
+       <div class="tagline-div"> 
+        {{#each messages}}
+         <div class="errors">{{this}}</div>
+        {{/each}}   
+         <h2>Book Unique Places to stay and things to do.</h2>
+        <form action="/validate-home" method="POST">
+         <h3>WHERE</h3>
+         <select name="destination" id="destination">
+           <option value="Ontario">Ontario</option>
+           <option value="British Columbia">British Columbia</option>
+           <option value="Saskatchewan">Saskatchewan</option>
+           <option value="Nova Scotia">Nova Scotia</option>
+           <option value="Alberta">Alberta</option>
+         </select>
+
+          </div>
+
+          <div class="container">
+
+          <div class="check_in_div">
+          <h3 class="check_in">CHECK-IN</h3>
+          <input type="date" name="check_in" class="check_in_input">
+          </div>
+
+          <div class="check_out_div">
+          <h3 class="check_out">CHECK OUT</h3>
+          <input type="date" name="check_out" class="check_out_input">
+          </div>
+
+        </div>  
+
+        <div class="guests_div">
+        <h3>GUESTS</h3>
+         <select name="guests_menu"  class="guest_menu" aria-placeholder="1 Guest">
+           <option value="Children">Children (Under 14)</option>
+           <option value="Adult">Adult(14+)</option>
+           <option value="Senior">Senior(60+)</option>
+        </select>  
+
+        <input type="submit" value="SUBMIT" class="submit_btn">
+       </form>
+        </div>
+
+      </article>
+
+    </div>
+
+  </article>
+
+</article>
+
+<section class="promotional_content_section">
+
+  <div class="explore">
+    <h2 class="explore_tagline">
+      Explore TravellingBud.
+    </h2>
+    
+    <p class="explore_message">Click to learn more about more exclusive offers for your next trip.</p>
+  </div>
+
+  <div class="stays_adv_exp_parent_div">
+      
+      <div class="stays_div">
+      
+        <div class="stays_img">
+          <img src="/images/stays_back.jpg" style="width: 55% ; height:100%;border-radius: 0.2em" alt="">
+        </div>
+
+        <div class="stays_message">
+          <h2>Stays</h2>
+        </div>
+
+      </div>
+
+      <div class="adv_div">
+        
+        <div class="adv_img">
+          <img src="/images/adv_img.jpg" style=" width:55%; height:100%; border-radius: 0.2em" alt="">
+        </div>
+
+        <div class="adv_message">
+          <h2>Adventures</h2>
+        </div>
+
+      </div>
+
+      <div class="exp_div">
+        <div class="exp_img">
+          <img src="/images/exp_img.jpg" alt="" style="width:55%; height:100%; border-radius: 0.2em">
+        </div>
+
+        <div class="exp_message">
+
+          <h2>Experiences</h2>
+
+        </div>
+    
+      </div>
+  </div>
+
+  <div class="places_to_stay">
+    <h2>TravellingBud Places to Stay and Explore</h2>
+    <p>Explore a selection of places picked from around the world to give you the best experience. Verified for quality and design. </p>
+  </div>  
+
+  <div class="places_to_stay_image">
+    <button class="">Learn More</button>
+  </div>
+
+  </article>
+
+</section>

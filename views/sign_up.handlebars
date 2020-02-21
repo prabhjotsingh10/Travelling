@@ -1,0 +1,27 @@
+<div class="usr_rg">
+    <div class="usr_rg_cntnts">
+      {{#each messages}}
+        <div class="errors">{{this}}</div>
+      {{/each}}
+      <form id="usr_rg_frm" action="/sign_up" method="POST">
+        <p class="sgn_up_mssg">Sign Up with <a href="#" class="fb_usr_frm"> Facebook </a> or  <a href="#" class="ggl_usr_frm">Google Plus </a> </p> <p class="or">or</p>
+        <input type="name" placeholder="First Name" class="frst_nme" name="frst_nme">
+        <input type="name" placeholder="Last Name" class="lst_nme" name="lst_nme">
+        <input type="password" placeholder="Create a Password" class="psswrd" name="psswrd"> 
+        <input type="Email" placeholder="Enter your best email address" class="usr_rg_eml" name="usr_rg_eml">
+        <input type="text" placeholder="Enter your Phone Number" id="ph_No" name="ph_No">
+        <label for=""><h4>Birthday</h4> </label>
+        <p class="brthdy_mssg">To sign up, you need to be at least 18. Other people who use this website won't be able to see your birthday.</p>
+        <input type="date" min="1950-01-01" max="2002-01-01" class="brthdy" name="brthdy">
+        <button class="sign_up_btn" type="submit" >SIGN UP</button>
+        <hr>
+        <p class="login_message">Already have an account? <a href="/login" class="login_link" > Log in </a></p>
+      </form>
+    </div>
+  </div>
+
+<script type="text/javascript">
+
+  
+
+</script>
