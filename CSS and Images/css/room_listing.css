@@ -46,6 +46,12 @@ h2{
     color: sandybrown;
 }
 
+.price{
+    margin-top: 1em;
+    text-align: center;
+    color: darkblue;
+}
+
 .rating{
     position: absolute;
     right: 0;
