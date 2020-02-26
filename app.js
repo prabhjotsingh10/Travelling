@@ -51,6 +51,15 @@ app.get("/sign_up", (req,res) => {
 
 })
 
+app.get("/dashboard", (req,res) => {
+
+    res.render("dashboard", {
+        title:"Dashboard",
+       
+    });
+
+})
+
 /*******LOGIN VALIDATIONS **********/
 
 app.post("/validation", (req,res) =>{
@@ -147,6 +156,7 @@ app.post("/sign_up", (req,res)=>{
     const authToken = 'c94d96e9b9c115ac96cf81d8dbee84fe';
     const client = require('twilio')(accountSid, authToken);
 
+  
    client.messages
      .create({
         body: `${req.body.frst_name} ${req.body.lst_name} Message: ${req.body.usr_rg_eml}`,
@@ -155,7 +165,7 @@ app.post("/sign_up", (req,res)=>{
       })
      .then(message =>{ 
         console.log(message.sid);
-        res.render("sign_up");
+        res.render("dashboard");
      })
 
      .catch((err) =>{
