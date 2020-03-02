@@ -3,6 +3,7 @@ const app = express();
 const exphbr = require('express-handlebars');
 const bodyParser = require('body-parser');
 const roomsModel = require("./models/rooms");
+const name = require("./models/dash");
 
 app.use(express.static('CSS and Images'));
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -18,15 +19,18 @@ app.get('/',(req,res) =>{
 
 app.get('/home',(req,res) =>{
     res.render("home", {
-        title:"Welcome to TravellingBud "
+        title:"Welcome to TravellingBud ",
+        title2:"Featured Room Listings",
+        heading: "Featured Rooms Just For You",
+        rooms: roomsModel.getallProducts()
     })
 })
 
 
 app.get("/registration", (req,res) => {
 
-    res.render("registration", {
-        title:"Featured Room Listings",
+    res.render("room-listing", {
+        title2:"Featured Room Listings",
         heading: "Featured Rooms Just For You",
         rooms: roomsModel.getallProducts()
     });

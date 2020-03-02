@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="css/room_listing.css">
+
 <article class="background-home">
 
   <article class="main-area">
@@ -105,6 +107,21 @@
     
       </div>
   </div>
+
+    <h1 class="room_listing_heading">{{heading}}</h1>
+     <div class="container">
+      {{#each rooms}}
+        <div class="card">
+            <img src="{{this.image}}" alt="" style="width: 100%;">
+            <div class="description">
+                <p>{{this.title}}</p><i class="fas fa-star"> {{this.rating}}</i>
+                <h2 class="descrip_heading">{{this.description}}</h2>
+                <h4 class="price">Price Per Night: {{this.price}} $</h4>
+            </div>   
+        </div>
+     
+      {{/each}}
+     </div>
 
   <div class="places_to_stay">
     <h2>TravellingBud Places to Stay and Explore</h2>

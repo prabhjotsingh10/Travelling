@@ -394,7 +394,7 @@ input[type="text"]{
 /************** Promotional Content *****************/
 
 .explore{
-    margin: 3em 2em;;
+    margin: 3em 1em;;
 }
 
 .explore_tagline{
@@ -405,7 +405,7 @@ input[type="text"]{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 1em;
-    margin: 0em 2em;
+    margin: 0em 1.2em;
 }
 
 .stays_div, .adv_div,.exp_div{
@@ -428,8 +428,7 @@ input[type="text"]{
 
 .places_to_stay{
     margin-top: 4em; 
-    margin-left: 2em;
-    
+    margin-left: 1em;
 }
 
 .places_to_stay p{
@@ -438,9 +437,10 @@ input[type="text"]{
 
 .places_to_stay_image{
    margin: 1em 0em;
-   margin-left: 2em;
+   margin-left: 1em;
+   margin-right: 1em;
    height: 35em;
-   max-width: 91em;
+   max-width: 100em;
    background-image: url('../images/places-to-stay-image.jpg');
    background-size: cover;
    background-repeat: no-repeat;
