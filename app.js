@@ -2,8 +2,19 @@ const express = require('express');
 const app = express();
 const exphbr = require('express-handlebars');
 const bodyParser = require('body-parser');
-const roomsModel = require("./models/rooms");
 const name = require("./models/dash");
+const roomsModel = require("./models/rooms");
+
+//Load the environment variable file
+require('dotenv').config({path:"./config/keys.env"})
+
+// Load the controllers 
+
+const roomsController = require('./controllers/rooms_controller');
+
+//map each controller to app object 
+
+app.use('/registration',roomsController);
 
 app.use(express.static('CSS and Images'));
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -13,6 +24,9 @@ app.set('view engine','handlebars');
 app.get('/',(req,res) =>{
     res.render("home", {
         title:"Welcome to TravellingBud ",
+        title2:"Featured Room Listings",
+        heading: "Featured Rooms Just For You",
+        rooms: roomsModel.getallProducts()
 
     })
 })
@@ -26,16 +40,6 @@ app.get('/home',(req,res) =>{
     })
 })
 
-
-app.get("/registration", (req,res) => {
-
-    res.render("room-listing", {
-        title2:"Featured Room Listings",
-        heading: "Featured Rooms Just For You",
-        rooms: roomsModel.getallProducts()
-    });
-
-})
 
 app.get("/login", (req,res) => {
 
@@ -156,31 +160,48 @@ app.post("/sign_up", (req,res)=>{
     })
     }
     else{
-    const accountSid = 'ACe317b394cdcceeb8df5c4247b4159d0d';
-    const authToken = 'c94d96e9b9c115ac96cf81d8dbee84fe';
+    
+    const sgMail = require('@sendgrid/mail');
+    const accountSid = process.env.TWILIO_ACCOUNT_SID;
+    const authToken = process.env.TWILIO_AUTH_TOKEN;
     const client = require('twilio')(accountSid, authToken);
-
+    sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
+    const msg = {
+      to: `prabhjot.singh232@gmail.com`,
+      from: 'noreply@travellingBud.com',
+      subject: 'Welcome to TravellingBud',
+      text: `Hello ${req.body.first_nme} ${req.body.last_nme}, welcome to Travelling Bud`,
+    };
+    sgMail.send(msg)
+    .then(()=>{
+        res.redirect("dashboard");
+    })
+    .catch((err)=>{
+        console.log(err);
+    }),
   
    client.messages
      .create({
-        body: `${req.body.frst_name} ${req.body.lst_name} Message: ${req.body.usr_rg_eml}`,
+        body: `${req.body.first_nme} ${req.body.last_nme} Message: Welcome to TravellingBud Bro`,
         from: '+14805088327',
         to: `${req.body.ph_No}`
       })
      .then(message =>{ 
         console.log(message.sid);
-        res.render("dashboard");
+        res.redirect("dashboard");
      })
 
      .catch((err) =>{
          console.log(`Error ${err}`);
      })
-  
+     
      }
 
     });
+    
+    
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT ;
 
 app.listen(PORT, () => {
     console.log("The server is up and running");
