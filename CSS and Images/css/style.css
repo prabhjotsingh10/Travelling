@@ -827,7 +827,11 @@ and (-webkit-device-pixel-ratio : 3) {
 
 
     
-    @media (min-width: 576px) { 
-        
+    @media (max-width: 768px) { 
+        .container{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 2px;
+        }
        
     }

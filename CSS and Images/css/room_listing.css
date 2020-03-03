@@ -80,3 +80,21 @@ html{
     }
 
 }
+
+@media (max-width: 768px) { 
+    .container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 2px;
+    }
+
+   
+}
+
+@media (min-width: 992px){
+    .container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap:2px;
+    }
+}

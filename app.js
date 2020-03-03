@@ -5,10 +5,10 @@ const bodyParser = require('body-parser');
 const roomsModel = require("./models/rooms");
 
 //Load the environment variable file
-// require('dotenv').config({path:"./config/keys.env"})
+require('dotenv').config({path:"./config/keys.env"})
 
 // Load the controllers 
-const roomsController = require("./controllers/rooms_controller");
+// const roomsController = require("./controllers/rooms_controller");
 
 //map each controller to app object 
 // app.use("/room-listing",roomsController);
