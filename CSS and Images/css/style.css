@@ -32,6 +32,7 @@ nav{
     list-style-type:none ;
     padding-top: 2em;
     margin-left: 6em;
+    
 }
 
 .menu_list li a{
@@ -826,5 +827,7 @@ and (-webkit-device-pixel-ratio : 3) {
 
 
     
-
-    
+    @media (min-width: 576px) { 
+        
+       
+    }

@@ -55,3 +55,29 @@
     text-align: center;
     color: darkblue;
 }
+
+@media (max-width: 576px) { 
+    .sidenav ul li{
+        display: block;
+        text-align: center;
+    }
+
+    .content{
+        display: block;
+        
+    }
+    .sidenav{
+        height: 100%;
+    background-color: darkgrey;
+    margin-right: 2em;
+    max-width: 40em;
+    }
+
+    .main_content{
+        margin-top: 2em;
+    }
+
+    .main_content p{
+        margin-bottom: 2em;
+    }
+ }

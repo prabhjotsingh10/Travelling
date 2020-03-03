@@ -73,3 +73,10 @@ html{
     top: 0;
     color: darkblue;
 } 
+
+@media (max-width: 576px) { 
+    .container{
+        display: block;
+    }
+
+}

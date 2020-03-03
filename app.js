@@ -2,19 +2,16 @@ const express = require('express');
 const app = express();
 const exphbr = require('express-handlebars');
 const bodyParser = require('body-parser');
-const name = require("./models/dash");
 const roomsModel = require("./models/rooms");
 
 //Load the environment variable file
 require('dotenv').config({path:"./config/keys.env"})
 
 // Load the controllers 
-
-const roomsController = require('./controllers/rooms_controller');
+const roomsController = require("./controllers/rooms_controller");
 
 //map each controller to app object 
-
-app.use('/registration',roomsController);
+app.use("/room-listing",roomsController);
 
 app.use(express.static('CSS and Images'));
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -67,6 +64,7 @@ app.get("/dashboard", (req,res) => {
     });
 
 })
+
 
 /*******LOGIN VALIDATIONS **********/
 
@@ -176,10 +174,7 @@ app.post("/sign_up", (req,res)=>{
     .then(()=>{
         res.redirect("dashboard");
     })
-    .catch((err)=>{
-        console.log(err);
-    }),
-  
+    
    client.messages
      .create({
         body: `${req.body.first_nme} ${req.body.last_nme} Message: Welcome to TravellingBud Bro`,
@@ -189,10 +184,6 @@ app.post("/sign_up", (req,res)=>{
      .then(message =>{ 
         console.log(message.sid);
         res.redirect("dashboard");
-     })
-
-     .catch((err) =>{
-         console.log(`Error ${err}`);
      })
      
      }
