@@ -5,13 +5,13 @@ const bodyParser = require('body-parser');
 const roomsModel = require("./models/rooms");
 
 //Load the environment variable file
-require('dotenv').config({path:"./config/keys.env"})
+// require('dotenv').config({path:"./config/keys.env"})
 
 // Load the controllers 
 const roomsController = require("./controllers/rooms_controller");
 
 //map each controller to app object 
-app.use("/room-listing",roomsController);
+// app.use("/room-listing",roomsController);
 
 app.use(express.static('CSS and Images'));
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -60,7 +60,17 @@ app.get("/dashboard", (req,res) => {
 
     res.render("dashboard", {
         title:"Dashboard",
-       
+        
+    });
+
+})
+
+app.get("/room-listing", (req,res) => {
+
+    res.render("room-listing", {
+        title:"Room Listing",
+        heading: "Featured Rooms Just For You",
+        rooms: roomsModel.getallProducts()
     });
 
 })
