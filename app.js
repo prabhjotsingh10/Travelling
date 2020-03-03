@@ -172,7 +172,7 @@ app.post("/sign_up", (req,res)=>{
     };
     sgMail.send(msg)
     .then(()=>{
-    
+        
     })
 
     .catch((err)=>{
