@@ -159,18 +159,25 @@ app.post("/sign_up", (req,res)=>{
     }
     else{
     
-    // const sgMail = require('@sendgrid/mail');
+    const sgMail = require('@sendgrid/mail');
     const accountSid = process.env.TWILIO_ACCOUNT_SID;
     const authToken = process.env.TWILIO_AUTH_TOKEN;
     const client = require('twilio')(accountSid, authToken);
-    // sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
-    // const msg = {
-    //   to: `prabhjot.singh232@gmail.com`,
-    //   from: 'noreply@travellingBud.com',
-    //   subject: 'Welcome to TravellingBud',
-    //   text: `Hello ${req.body.first_nme} ${req.body.last_nme}, welcome to Travelling Bud`,
-    // };
-    // sgMail.send(msg)
+    sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
+    const msg = {
+      to: `${req.body.user_rg_eml}`,
+      from: 'noreply@travellingBud.com',
+      subject: 'Welcome to TravellingBud',
+      text: `Hello ${req.body.first_nme} ${req.body.last_nme}, welcome to Travelling Bud`,
+    };
+    sgMail.send(msg)
+    .then(()=>{
+    
+    })
+
+    .catch((err)=>{
+        console.log(err);
+    })
    
    client.messages
      .create({
@@ -180,7 +187,10 @@ app.post("/sign_up", (req,res)=>{
       })
      .then(message =>{ 
         console.log(message.sid);
-        res.redirect("dashboard");
+        res.render("dashboard");
+     })
+     .catch(err=>{
+         console.log(err);
      })
      
      }
