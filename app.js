@@ -171,10 +171,7 @@ app.post("/sign_up", (req,res)=>{
       text: `Hello ${req.body.first_nme} ${req.body.last_nme}, welcome to Travelling Bud`,
     };
     sgMail.send(msg)
-    .then(()=>{
-        res.redirect("dashboard");
-    })
-    
+   
    client.messages
      .create({
         body: `${req.body.first_nme} ${req.body.last_nme} Message: Welcome to TravellingBud Bro`,
@@ -190,9 +187,7 @@ app.post("/sign_up", (req,res)=>{
 
     });
     
-    
-
-const PORT = process.env.PORT ;
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
     console.log("The server is up and running");
