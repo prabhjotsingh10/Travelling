@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const roomsModel = require("../models/rooms");
+const userModel = require("../models/dash")
 
 router.get("/login", (req,res) => {
 
@@ -143,24 +144,47 @@ router.post("/sign_up", (req,res)=>{
         messages:errors
     })
     }
+
     else{
+        
+    const newUser = {
+        
+        FirstName: req.body.first_nme,
+        LastName: req.body.last_nme,
+        Password:req.body.psswrd,
+        Email:req.body.user_rg_eml,
+        PhoneNo:req.body.ph_No,
+        DateOfBirth:req.body.brthdy
+    }
+
+    const user = new userModel(newUser);
     
+    user.save()
+    
+    .then(()=>{
+        console.log("User created in the database");
+    })
+
+    .catch(error=>console.log(`Error While creating the user ${error}`))
+
+    //SMS and EMAIL 
     const sgMail = require('@sendgrid/mail');
     const accountSid = process.env.TWILIO_ACCOUNT_SID;
     const authToken = process.env.TWILIO_AUTH_TOKEN;
     const client = require('twilio')(accountSid, authToken);
     sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
+    
     const msg = {
       to: `${req.body.user_rg_eml}`,
       from: 'noreply@travellingBud.com',
       subject: 'Welcome to TravellingBud',
       text: `Hello ${req.body.first_nme} ${req.body.last_nme}, welcome to Travelling Bud`,
     };
+    
     sgMail.send(msg)
     .then(()=>{
         
     })
-
     .catch((err)=>{
         console.log(err);
     })
@@ -172,13 +196,15 @@ router.post("/sign_up", (req,res)=>{
         to: `${req.body.ph_No}`
       })
      .then(message =>{ 
-        console.log(message.sid);
-        res.render("dashboard");
+        // console.log(message.sid);
+        res.render("dashboard",{
+        name:`${req.body.first_nme} ${req.body.last_nme}`
+        });
      })
      .catch(err=>{
          console.log(err);
      })
-     
+
      }
 
     });
