@@ -3,6 +3,8 @@ const router = express.Router();
 const roomsModel = require("../models/rooms");
 const userModel = require("../models/dash")
 
+router.use(express.static('CSS and Images'));
+
 router.get("/login", (req,res) => {
 
     res.render("login", {
@@ -13,7 +15,7 @@ router.get("/login", (req,res) => {
 })
 
 router.get('/',(req,res) =>{
-    res.render("../views/home", {
+    res.render("../views/general/home", {
         title:"Welcome to TravellingBud ",
         title2:"Featured Room Listings",
         heading: "Featured Rooms Just For You",
@@ -23,7 +25,7 @@ router.get('/',(req,res) =>{
 })
 
 router.get('/home',(req,res) =>{
-    res.render("../views/home", {
+    res.render("../views/general/home", {
         title:"Welcome to TravellingBud ",
         title2:"Featured Room Listings",
         heading: "Featured Rooms Just For You",
@@ -44,7 +46,7 @@ router.get("/sign_up", (req,res) => {
 
 router.get("/dashboard", (req,res) => {
 
-    res.render("dashboard", {
+    res.render("../views/dashboards/dashboard", {
         title:"Dashboard",
         
     });
@@ -97,7 +99,7 @@ router.post("/validate-home", (req,res)=>{
     }
 
     if(errors.length > 0 )
-    res.render("home",{
+    res.render("../views/general/home",{
         messages:errors
     }
     )
@@ -197,7 +199,7 @@ router.post("/sign_up", (req,res)=>{
       })
      .then(message =>{ 
         // console.log(message.sid);
-        res.render("dashboard",{
+        res.render("../views/dashboards/dashboard",{
         name:`${req.body.first_nme} ${req.body.last_nme}`
         });
      })

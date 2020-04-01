@@ -56,6 +56,36 @@
     color: darkblue;
 }
 
+.welcome_message{
+    text-align: center;
+    margin-top: 1em;
+}
+
+.welcome_message h3{
+    margin: 1em 0em;
+}
+
+.admn_optns{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1em;
+    text-align: center;
+    margin:2em
+}
+
+.admn_optns a{
+    border: 1px dotted black;
+    padding: 2em;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.admn_optns :hover{
+    color: whitesmoke;
+    background-color: darkslateblue;
+    transition: ease-in-out 0.4s;
+}
+
 @media (max-width: 576px) { 
     .sidenav ul li{
         display: block;

@@ -74,6 +74,63 @@ html{
     color: darkblue;
 } 
 
+/************* Create Rooms CSS *************************/
+
+#room_ttl,#room_ttl,#room_prc,#room_dsc,#room_lcn,#chck_ys{
+    display:inline-block;
+    padding: 0.8em;
+    width: 80%;
+    font-family: 'Playfair Display';
+ }
+
+.room_lbl{
+    display: block;
+    margin: 1em 0em;
+    font-weight: bold;
+}
+
+.chck_ys,.chck_no{
+    display: inline-block;
+    margin-left: 5em;
+}
+
+.room_lst_frm{
+
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.room_lst_frm_cntnt
+{
+    margin:2em 0em;
+    text-align: center;
+    width: 35em;
+    border:1px solid darkgray;
+}
+
+.crte_rm_hd{
+    margin: 1em 0em;
+    color: #0E8B8F;
+    font-weight: lighter;
+}
+
+.add_rm{
+    padding: 0.5em;
+    margin:1em;
+    cursor: pointer;
+    background-color: #FF5A5F;
+    width: 50%;
+    font-family: 'Playfair Display';
+    color: whitesmoke;
+}
+
+.add_rm:hover{
+    background-color: #f53844;
+}
+
 @media (max-width: 576px) { 
     .container{
         display: block;

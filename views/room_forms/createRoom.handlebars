@@ -1,0 +1,37 @@
+      <link rel="stylesheet" href="css/room_listing.css">
+
+<div class="room_lst_frm">
+    <div class="room_lst_frm_cntnt">
+      <form action="/room-listing/create_rooms" method="POST">
+
+        <h2 class="crte_rm_hd">Create a Room Here</h2>
+
+        <label class="room_lbl">Room Title</label>
+        <input type="text" placeholder="Enter title" id="room_ttl" name="title">
+        <br>
+
+        <label class="room_lbl">Price</label>
+        <input type="number" placeholder="Enter price" id="room_prc" name="price">
+        <br>
+
+        <label class="room_lbl"> Enter Room Description</label>
+        <input type="text" placeholder="Enter Description" id="room_dsc" name="description">  
+        <br>
+    
+        <label class="room_lbl">Location</label>
+        <input type="text" placeholder="Enter Location" id="room_lcn" name="location">
+        <br>
+
+        <label class="room_lbl">Featured Room</label>
+        <br>
+        <input type="text" name="ftrd_rm" id="chck_ys" placeholder="Enter Yes or No"> 
+        
+        <label class="room_lbl">File Upload</label>
+        <input type="file" name="roomPic" > <br><br>
+
+        <button type="submit" value="ADD ROOM" class="add_rm">
+
+        </form>
+    </div>
+</div>
+    
