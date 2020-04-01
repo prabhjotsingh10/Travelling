@@ -18,12 +18,12 @@ router.get("/", (req,res) => {
 
 })
 
-router.get("/admin_dash",(req,res)=>{
-    res.render("../views/room_forms/createRoom")
-})
+// router.get("/admin_dash",(req,res)=>{
+//     res.render("../views/room_forms/createRoom")
+// })
 
 router.get("/create_rooms",(req,res)=>{
-    res.render("/views/room_forms/createRoom")
+    res.render("../views/room_forms/createRoom")
 })
 
 router.post("/create_rooms",(req,res)=>{
@@ -59,5 +59,93 @@ router.post("/create_rooms",(req,res)=>{
 
     .catch(err=>console.log(`An error while creating the rooms ${err}`));    
 })
+
+/*******Route to view rooms ********/
+
+router.get("/view_rooms",(req,res)=>{
+
+    adminModel.find()
+
+    .then((records)=>{
+
+        const rooms_data = records.map(record =>{
+            
+            return {
+                id:record._id,
+                Title:record.Title,
+                Price:record.Price,
+                Description:record.Description,
+                Location:record.Location,
+                FeaturedRoom:record.FeaturedRoom
+                
+            }
+        })
+
+        res.render("../views/room_forms/viewRooms",{
+            rooms:rooms_data,
+        });
+
+    })
+
+    .catch(err=>console.log(`Error occured while displaying the data ${err}`))
+
+})
+
+/*************Route to edit rooms *****************/
+
+router.get("/edit_rooms/:id",(req,res)=>{
+
+    adminModel.findById(req.params.id)
+
+    .then((task)=>{
+
+        const {_id,Title,Price,Description,Location,FeaturedRoom} = task;
+
+        res.render("../views/room_forms/updateRooms",{
+
+            _id,
+            Title,
+            Price,
+            Description,
+            Location,
+            FeaturedRoom
+        });
+    })
+
+    .catch(err=>console.log(`Error occured when pulling into the database ${err}`));
+})
+
+router.put("/updateRooms/:id",(req,res)=>{
+
+    const task = {
+        Title:req.body.title,
+        Description:req.body.description,
+        Price:req.body.price,
+        Location:req.body.location,
+        FeaturedRoom:req.body.ftrd_rm
+    }
+
+    adminModel.updateOne({_id:req.params.id},task)
+
+    .then(()=>{
+        res.redirect("/room-listing/view_rooms")
+    })
+
+    .catch(err=>console.log(`Error occured when pulling into the database ${err}`));
+
+})
+
+router.delete("/delete/:id",(req,res)=>{
+
+    adminModel.deleteOne({_id:req.params.id})
+    
+    .then(()=>{
+        res.redirect("/room-listing/view_rooms");
+    })
+
+    .catch(err=>console.log(`Error occured while deleting the record ${err}`));
+
+})
+
 
 module.exports = router;

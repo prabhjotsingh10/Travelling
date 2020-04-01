@@ -1,0 +1,23 @@
+    {{#each rooms}}
+    
+    <h1 class="room_listing_heading">{{this.title}}</h1 >
+    <div class="container">
+        <div class="card">
+            {{!-- <img src="{{this.image}}" alt="" style="width: 100%;"> --}}
+            <div class="description">
+                <p>{{this.FeaturedRoom}}</p><i class="fas fa-star"></i>
+                <h2>{{this.Description}}</h2>
+                <h4 class="price">Price Per Night: {{this.Price}} $</h4>
+            </div>   
+        </div>
+
+        {{!-- <a href="/task/profile/{{this.id}}" class="">{{this.Title}}</a>
+        <span>{{this.Price}}</span>
+        <span>{{this.Description}}</span>
+        <span>{{this.Location}}</span>
+        <span>{{this.FeaturedRoom}}</span>
+        <a href="/room-listing/edit_rooms/{{this.id}}" class="create_btn">Edit</a>
+        <a href="/room-listing/delete/{{this.id}}?method=DELETE" class="view_and_mod_btn">Delete</a> --}}
+
+    {{/each}}
+ 

@@ -1,0 +1,37 @@
+      <link rel="stylesheet" href="css/room_listing.css">
+
+<div class="room_lst_frm">
+    <div class="room_lst_frm_cntnt">
+      <form action="/room-listing/updateRooms/{{_id}}?method=PUT" method="POST">
+
+        <h2 class="crte_rm_hd">Update Rooms Here</h2>
+
+        <label class="room_lbl">Room Title</label>
+        <input type="text" placeholder="Enter title" name="title" value="{{Title}}">
+        <br>
+
+        <label class="room_lbl">Price</label>
+        <input type="number" placeholder="Enter price" id="room_prc" name="price" value="{{Price}}">
+        <br>
+
+        <label class="room_lbl"> Enter Room Description</label>
+        <input type="text" placeholder="Enter Description" id="room_dsc" name="description" value="{{Description}}">  
+        <br>
+    
+        <label class="room_lbl">Location</label>
+        <input type="text" placeholder="Enter Location" id="room_lcn" name="location" value="{{Location}}">
+        <br>
+
+        <label class="room_lbl">Featured Room</label>
+        <br>
+        <input type="text" name="ftrd_rm" id="chck_ys" placeholder="Enter Yes or No" value="{{FeaturedRoom}}"> 
+        
+        <label class="room_lbl">File Upload</label>
+        <input type="file" name="roomPic" > <br><br>
+
+        <button type="submit" class="add_rm"> ADD ROOM </button> 
+
+        </form>
+    </div>
+</div>
+    

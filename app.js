@@ -14,6 +14,21 @@ app.engine('handlebars', exphbr());
 app.set('view engine','handlebars');
     
 
+app.use((req,res,next)=>{
+
+    if(req.query.method == "PUT")
+    {
+        req.method="PUT"
+    }
+
+    else if(req.query.method == "DELETE")
+    {
+        req.method="DELETE"
+    }
+
+    next();
+})
+
 // Load the controllers 
 const generalController = require("./controllers/general")
 const roomsController = require("./controllers/rooms_controller");
