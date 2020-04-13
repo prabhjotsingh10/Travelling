@@ -601,7 +601,7 @@ input[type="text"]{
 }
 
 /******************** BREAKPOINTS *******************************/
-
+/* 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 
     
@@ -859,4 +859,4 @@ and (-webkit-device-pixel-ratio : 3) {
             grid-gap: 2px;
         }
        
-    }
+    } */

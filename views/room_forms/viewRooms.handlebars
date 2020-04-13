@@ -1,13 +1,16 @@
-    {{#each rooms}}
-    
+<link rel="stylesheet" href="css/room_listing.css">    
+ 
     <h1 class="room_listing_heading">{{this.title}}</h1 >
     <div class="container">
+     {{#each rooms}}
         <div class="card">
-            {{!-- <img src="{{this.image}}" alt="" style="width: 100%;"> --}}
+            <img src="/room_pics/{{roomPic}}" width="100%">
+            {{!-- <img src="/CSS and Images/room_pics/{{roomPic}}" alt="" style="width: 50em;height:50em">  --}}
             <div class="description">
-                <p>{{this.FeaturedRoom}}</p><i class="fas fa-star"></i>
+                <p><span style="font-weight:bold; color:blue">Featured Room:</span>{{this.FeaturedRoom}}</p><i class="fas fa-star"></i>
                 <h2>{{this.Description}}</h2>
                 <h4 class="price">Price Per Night: {{this.Price}} $</h4>
+                <a href="/room-listing/delete/{{this.id}}?method=DELETE" class="view_and_mod_btn">Delete</a>
             </div>   
         </div>
 

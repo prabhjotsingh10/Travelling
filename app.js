@@ -3,6 +3,7 @@ const exphbr = require('express-handlebars');
 const bodyParser = require('body-parser');
 const app = express();
 const mongoose = require("mongoose");
+const fileUpload = require("express-fileupload");
 
 //Load the environment variable file
 require('dotenv').config({path:"./config/keys.env"})
@@ -28,6 +29,8 @@ app.use((req,res,next)=>{
 
     next();
 })
+
+app.use(fileUpload());
 
 // Load the controllers 
 const generalController = require("./controllers/general")

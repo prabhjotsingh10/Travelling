@@ -34,8 +34,6 @@ const roomSchema = new Schema(
         {
             type:String
         }
-
-
     }
 )
 

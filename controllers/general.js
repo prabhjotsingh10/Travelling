@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const roomsModel = require("../models/rooms");
-const userModel = require("../models/dash")
+const userModel = require("../models/dash");
+const adminModel = require("../models/adminRooms");
 
 router.use(express.static('CSS and Images'));
 
@@ -217,6 +218,24 @@ router.post("/sign_up", (req,res)=>{
 
     });
 
-    
+
+/***************Room Pics Route **************/
+
+router.get("/room_pic/:id",(req,res)=>{
+
+    adminModel.findById(req.params.id)
+    .then((user)=>{
+
+        const {roomPic} = user;
+
+        res.render("../views/dashboards/AdminDash",{
+        roomPic
+        }
+        )
+    })
+
+    .catch(err=>console.log(`Error displaying rooms from the database ${err}`));
+})
+
 
 module.exports = router;

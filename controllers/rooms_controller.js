@@ -37,28 +37,28 @@ router.post("/create_rooms",(req,res)=>{
 
     };
 
-    const room = new adminModel(newRoom);
+    const user = new adminModel(newRoom);
 
-    room.save()
-    // .then((room)=>{
-    //     req.files.roomPic.name = `Room_pic_${room._id}${path.parse(req.files.roomPic.name).ext}`;
-    //     req.files.roomPic.mv(`public/room_pics/${req.files.roomPic.name}`)
-    //     .then(()=>{
+    user.save()
+    .then((user)=>{
+        req.files.roomPic.name = `room_pic_${user._id}${path.parse(req.files.roomPic.name).ext}`;
+        req.files.roomPic.mv(`CSS and Images/room_pics/${req.files.roomPic.name}`)
+        .then(()=>{
 
-    //             adminModel.updateOne({_id:room._id})
-    //             {
-    //                 roomPic:req.files.roomPic.name;
-    //             }
-
-    //     })
-    // })
-
-    .then(()=>{
-        res.render("../views/dashboards/AdminDash");
+            adminModel.updateOne({_id:user._id},
+                {
+                    roomPic:req.files.roomPic.name
+                })
+            
+                .then(()=>{
+                    res.redirect(`/room-listing/room_pic/${user._id}`);
+                })
+        })
     })
 
-    .catch(err=>console.log(`An error while creating the rooms ${err}`));    
-})
+    .catch(err=>console.log(`An error while creating the rooms ${err}`));
+
+});
 
 /*******Route to view rooms ********/
 
@@ -76,7 +76,8 @@ router.get("/view_rooms",(req,res)=>{
                 Price:record.Price,
                 Description:record.Description,
                 Location:record.Location,
-                FeaturedRoom:record.FeaturedRoom
+                FeaturedRoom:record.FeaturedRoom,
+                roomPic:record.roomPic
                 
             }
         })
@@ -115,6 +116,8 @@ router.get("/edit_rooms/:id",(req,res)=>{
     .catch(err=>console.log(`Error occured when pulling into the database ${err}`));
 })
 
+/*************** Route to update Rooms *********/
+
 router.put("/updateRooms/:id",(req,res)=>{
 
     const task = {
@@ -135,6 +138,8 @@ router.put("/updateRooms/:id",(req,res)=>{
 
 })
 
+/*************** Route to delete rooms **************/
+
 router.delete("/delete/:id",(req,res)=>{
 
     adminModel.deleteOne({_id:req.params.id})
@@ -147,5 +152,23 @@ router.delete("/delete/:id",(req,res)=>{
 
 })
 
+
+/*********************** */
+
+router.get('/room_pic/:id',(req,res)=>{
+
+    adminModel.findById(req.params.id)
+    .then((user)=>{
+
+        const {roomPic} = user;
+
+        res.render("room_forms/viewRoom2",{
+
+            roomPic
+        });
+    })
+
+    .catch(err=>{console.log("error occured when loading the image")})
+})
 
 module.exports = router;
