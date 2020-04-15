@@ -25,9 +25,19 @@
           <li><a href="/home">Home</a></li>
           <li><a href="/room-listing/create_rooms" class="travelling_services">Travelling Services </a></li>
           <li><a href="/room-listing">Room Listing</a></li>
-          <li><a href="/sign_up" class="user_registration">User Registration</a></li>
-          <li><a href="#">Help</a></li>
-          <li><a href="/login" id="user_login" class="user_login">Login <i class="fas fa-user-circle"></i></a></li>
+          
+          {{#if user }}
+              <li><a href="/logout">Log Out</a></li>
+
+          {{else}}
+            
+            <li><a href="/sign_up" class="user_registration">User Registration</a></li>
+
+            <li><a href="/login" id="user_login" class="user_login">Login <i class="fas fa-user-circle"></i></a></li>
+
+          {{/if}}
+          
+         
         </ul>
       </nav>
 

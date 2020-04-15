@@ -4,10 +4,10 @@ const bodyParser = require('body-parser');
 const app = express();
 const mongoose = require("mongoose");
 const fileUpload = require("express-fileupload");
+const session = require('express-session');
 
 //Load the environment variable file
 require('dotenv').config({path:"./config/keys.env"})
-
 
 app.use(express.static('CSS and Images'));
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -31,6 +31,18 @@ app.use((req,res,next)=>{
 })
 
 app.use(fileUpload());
+
+app.use(session({
+    secret:`${process.env.SECRET_KEY}`,
+    resave:false,
+    saveUninitialized:true
+}))
+
+app.use((req,res,next)=>{
+
+    res.locals.user = req.session.userInfo; 
+    next();
+})
 
 // Load the controllers 
 const generalController = require("./controllers/general")

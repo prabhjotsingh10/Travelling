@@ -3,6 +3,8 @@ const router = express.Router();
 const adminModel = require("../models/adminRooms");
 const path = require("path");
 const roomsModel = require("../models/rooms");
+const LoggedIn = require("../middleware/auth");
+const AdminorUser = require("../middleware/authorization")
 
 
 router.use(express.static('CSS and Images'));
@@ -18,9 +20,9 @@ router.get("/", (req,res) => {
 
 })
 
-// router.get("/admin_dash",(req,res)=>{
-//     res.render("../views/room_forms/createRoom")
-// })
+router.get("/admin_dash",LoggedIn,AdminorUser,(req,res)=>{
+    res.render("../views/dashboards/AdminDash")
+})
 
 router.get("/create_rooms",(req,res)=>{
     res.render("../views/room_forms/createRoom")

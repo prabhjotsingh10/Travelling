@@ -3,10 +3,14 @@ const router = express.Router();
 const roomsModel = require("../models/rooms");
 const userModel = require("../models/dash");
 const adminModel = require("../models/adminRooms");
+const bcrypt = require("bcryptjs");
+const session = require('express-session');
+const LoggedIn = require("../middleware/auth");
+const AdminorUser = require("../middleware/authorization")
 
 router.use(express.static('CSS and Images'));
 
-router.get("/login", (req,res) => {
+router.get("/login",(req,res) => { 
 
     res.render("login", {
         title:"Log In",
@@ -45,7 +49,7 @@ router.get("/sign_up", (req,res) => {
 
 })
 
-router.get("/dashboard", (req,res) => {
+router.get("/dashboard",LoggedIn,AdminorUser ,(req,res) => {
 
     res.render("../views/dashboards/dashboard", {
         title:"Dashboard",
@@ -58,36 +62,67 @@ router.get("/dashboard", (req,res) => {
 
 router.post("/validation", (req,res) =>{
 
-    const errors = [];
-    const {email,pass} = req.body;
     
+    userModel.findOne({Email:req.body.email})
+    .then(user=>{
+        const errors = [];
 
-    if(`${email}` == "")
-    {
-        errors.push("Sorry, You must enter an email");
-    }
-
-    if(`${email}` == "admin@admin.com" && `${pass}` == "admin")
-
-    {
-        res.render("../views/dashboards/AdminDash")
-    }
-
-    if(`${pass}` == ""){
-        errors.push("Sorry, You must create a password to continue");
-    }
-
-    if(`${pass}`.length > 9)
-    {
-        errors.push("Please enter a password less than 9 words");
-    }
-
-    if(errors.length > 0){
-        res.render("../views/login",
+        if(user == null)
         {
-            messages : errors
-        })
-    }
+            errors.push("Sorry , you have entered invalid credentials!");
+            res.render("../views/login",
+                 {
+                     messages : errors
+                 })
+        }
+
+        else
+        {
+            bcrypt.compare(req.body.Pass, user.Password)
+            .then(isMatched=>{
+
+                if(isMatched)
+                {
+                    req.session.userInfo = user; 
+                    res.redirect('/dashboard');
+                }
+  
+                else
+                {
+                    errors.push("Sorry , you have entered invalid credentials!");
+                    res.render("../views/login",
+                 {
+                     messages : errors
+                 }) 
+                }
+            })
+            .catch((err)=>console.log(err));
+        }
+    })
+    .catch((err)=>console.log(err));
+
+  
+
+    // if(`${email}` == "")
+    // {
+    //     errors.push("Sorry, You must enter an email");
+    // }
+
+    // if(`${pass}` == ""){
+    //     errors.push("Sorry, You must create a password to continue");
+    // }
+
+    // if(`${pass}`.length > 9)
+    // {
+    //     errors.push("Please enter a password less than 9 words");
+    // }
+
+    // if(errors.length > 0){
+    //     res.render("../views/login",
+    //     {
+    //         messages : errors
+    //     })
+    // }
 
 })
 
@@ -237,5 +272,12 @@ router.get("/room_pic/:id",(req,res)=>{
     .catch(err=>console.log(`Error displaying rooms from the database ${err}`));
 })
 
+/***************** LOGOUT Route ***********/
+
+router.get("/logout",(req,res)=>{
+
+    req.session.destroy();
+    res.redirect("/login")
+})
 
 module.exports = router;

@@ -40,7 +40,14 @@ const userSchema = new Schema({
         type:Date,
         required:true
 
-    }    
+    },
+    
+    type:
+    {
+        type:String,
+        default:"User"
+    }
+
 })
 
 userSchema.pre("save",function(next){
