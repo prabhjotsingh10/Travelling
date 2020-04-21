@@ -22,7 +22,13 @@ The project is deployed live using Heroku.
 * JavaScript
 * Node JS
 * Express.JS
-* Express Handlebars 
+* Express Handlebars
+* Mongoose 
+* Mongo DB
+* Design template is MVC
+* Express Sessions for authentication and authorization
+* Express FileUpload
+* Bcrypt.js
 * Twilio API for messages 
 * Snapgrid API for email 
 
