@@ -88,10 +88,6 @@ router.get('/home',(req,res) =>{
 
 })
 
-
-
-
-
 router.get("/sign_up", (req,res) => {
 
     res.render("sign_up", {
@@ -119,9 +115,14 @@ router.post("/validation", (req,res) =>{
     .then(user=>{
         const errors = [];
 
+        if(`${req.body.email}` == "" && `${req.body.Pass}` == "")
+         {
+             errors.push("Sorry, You must enter an email and a password");
+         }
+
         if(user == null)
         {
-            errors.push("Sorry , you have entered invalid credentials!");
+            errors.push("Sorry , you must enter valid credentials!");
             res.render("../views/login",
                  {
                      messages : errors
@@ -206,12 +207,12 @@ router.post("/sign_up", (req,res)=>{
 
     const errors=[];
 
-    if(req.body.frst_nme == ""){
+    if(req.body.first_nme == ""){
         errors.push("Please enter your first name in order to continue");
         
     }
 
-     if(req.body.lst_nme == ""){
+     if(req.body.last_nme == ""){
          errors.push("Please enter your last name in order to continue");
      }
 
@@ -224,8 +225,8 @@ router.post("/sign_up", (req,res)=>{
         errors.push("Please create a password less than 9 words");
     }
 
-    if(req.body.usr_rg_eml==""){
-        errors.push("Please Enter you email address in order to continue");
+    if(req.body.user_rg_eml=="" || req.body.ph_No ==""){
+        errors.push("Please Enter you email address and phone number in order to continue");
         
     }
 
@@ -235,7 +236,7 @@ router.post("/sign_up", (req,res)=>{
 
     if(errors.length > 0 )
     {
-    console.log(errors);
+    // console.log(errors);
     res.render("../views/sign_up",{
         messages:errors
     })

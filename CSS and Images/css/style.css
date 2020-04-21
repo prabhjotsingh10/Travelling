@@ -26,6 +26,10 @@ nav{
     padding-top: 0.2em;
 }
 
+.menu{
+    display: none;
+}
+
 .menu_list{
     display: flex;
     place-content: space-evenly;
@@ -601,7 +605,7 @@ input[type="text"]{
 }
 
 /******************** BREAKPOINTS *******************************/
-/* 
+
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 
     
@@ -629,6 +633,18 @@ input[type="text"]{
         margin-bottom: 2em;
     }
 
+    .menu_list{
+        display: none;
+    }
+
+    .menu_visible{
+        display: block;
+        text-align: center;
+        margin-left: auto;
+        /* margin-top: 2em; */
+        margin-right: auto;
+    }
+
 }
 
 /********************* IPHONE 5/5S/SE ******************************/
@@ -640,6 +656,18 @@ and (max-device-width : 568px) {
     .main-area {
         margin-left: 0em;
         padding-top: 5em;
+    }
+
+    .menu{
+        display: inline-block;
+        position: fixed;
+        top: 0.5em;
+        right:0.5em;
+        color: white;
+    }
+
+    .menu_list{
+        display: none;
     }
 
     .booking-form {
@@ -751,7 +779,7 @@ and (-webkit-device-pixel-ratio : 3) {
     }
 
     .header{
-        height: 11em;
+        height: 8em;
     }
 
     .main-area{
@@ -848,15 +876,11 @@ and (-webkit-device-pixel-ratio : 3) {
         padding: 1em 2em;
     }
 
+
     }
 
 
     
-    @media (max-width: 768px) { 
-        .container{
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 2px;
-        }
+  
        
-    } */
+    
