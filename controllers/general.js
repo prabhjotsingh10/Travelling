@@ -20,14 +20,35 @@ router.get("/login",(req,res) => {
 })
 
 router.get('/',(req,res) =>{
-    res.render("../views/general/home", {
-        title:"Welcome to TravellingBud ",
-        title2:"Featured Room Listings",
-        heading: "Featured Rooms Just For You",
-        rooms: roomsModel.getallProducts()
+    adminModel.find({FeaturedRoom:"Yes"})
+ 
+    .then((records)=>{ 
+
+        const rooms_data = records.map(record =>{
+            
+            return {
+                id:record._id,
+                Title:record.Title,
+                Price:record.Price,
+                Description:record.Description,
+                Location:record.Location,
+                FeaturedRoom:record.FeaturedRoom,
+                roomPic:record.roomPic
+                
+            }
+        })
+
+        res.render("../views/general/home",{
+            rooms:rooms_data,
+            heading:"Featured Rooms"
+        });
 
     })
+
+    .catch(err=>console.log(`Error occured while displaying the data ${err}`))
+
 })
+
 
 router.get('/home',(req,res) =>{
 
