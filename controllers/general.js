@@ -30,13 +30,44 @@ router.get('/',(req,res) =>{
 })
 
 router.get('/home',(req,res) =>{
-    res.render("../views/general/home", {
-        title:"Welcome to TravellingBud ",
-        title2:"Featured Room Listings",
-        heading: "Featured Rooms Just For You",
-        rooms: roomsModel.getallProducts()
+
+    
+    // res.render("../views/general/home", {
+    //     title:"Welcome to TravellingBud ",
+    //     title2:"Featured Room Listings",
+    //     heading: "Featured Rooms Just For You",
+    //     // rooms: roomsModel.getallProducts()
+    // })
+    adminModel.find({FeaturedRoom:"Yes"})
+ 
+    .then((records)=>{ 
+
+        const rooms_data = records.map(record =>{
+            
+            return {
+                id:record._id,
+                Title:record.Title,
+                Price:record.Price,
+                Description:record.Description,
+                Location:record.Location,
+                FeaturedRoom:record.FeaturedRoom,
+                roomPic:record.roomPic
+                
+            }
+        })
+
+        res.render("../views/general/home",{
+            rooms:rooms_data,
+            heading:"Featured Rooms"
+        });
+
     })
+
+    .catch(err=>console.log(`Error occured while displaying the data ${err}`))
+
 })
+
+
 
 
 
@@ -54,7 +85,7 @@ router.get("/dashboard",LoggedIn,AdminorUser ,(req,res) => {
     res.render("../views/dashboards/dashboard", {
         title:"Dashboard",
         
-    });
+    }); 
 
 })
 
@@ -241,7 +272,7 @@ router.post("/sign_up", (req,res)=>{
       })
      .then(message =>{ 
         // console.log(message.sid);
-        res.render("../views/dashboards/dashboard",{
+        res.render("../views/signup_login",{
         name:`${req.body.first_nme} ${req.body.last_nme}`
         });
      })

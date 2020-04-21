@@ -468,7 +468,7 @@ input[type="text"]{
         margin-top: 5em;
     }
 
-.lets{
+#lets,#lets1{
         text-decoration: none;
         padding: 1.2em 3em;
         font-family: 'Playfair Display';

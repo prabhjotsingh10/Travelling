@@ -12,19 +12,47 @@ router.use(express.static('CSS and Images'));
 
 router.get("/", (req,res) => {
 
-    res.render("../views/room-listing", {
-        title2:"Featured Room Listings",
-        heading: "Featured Rooms Just For You",
-        rooms: roomsModel.getallProducts()
-    });
+//    res.render("../views/room-listing", {
+//         title2:"Featured Room Listings",
+//         heading: "Featured Rooms Just For You",
+//         rooms: roomsModel.getallProducts()
+//     });
+// })
+    adminModel.find({FeaturedRoom:"Yes"})
+ 
+    .then((records)=>{ 
+
+        const rooms_data = records.map(record =>{
+            
+            return {
+                id:record._id,
+                Title:record.Title,
+                Price:record.Price,
+                Description:record.Description,
+                Location:record.Location,
+                FeaturedRoom:record.FeaturedRoom,
+                roomPic:record.roomPic
+                
+            }
+        })
+
+        res.render("../views/room-listing",{
+            rooms:rooms_data,
+            heading:"Featured Rooms"
+        });
+
+    })
+
+    .catch(err=>console.log(`Error occured while displaying the data ${err}`))
 
 })
+
 
 router.get("/admin_dash",LoggedIn,AdminorUser,(req,res)=>{
     res.render("../views/dashboards/AdminDash")
 })
 
-router.get("/create_rooms",(req,res)=>{
+router.get("/create_rooms",LoggedIn,(req,res)=>{
     res.render("../views/room_forms/createRoom")
 })
 
@@ -64,7 +92,7 @@ router.post("/create_rooms",(req,res)=>{
 
 /*******Route to view rooms ********/
 
-router.get("/view_rooms",(req,res)=>{
+router.get("/view_rooms",LoggedIn,(req,res)=>{
 
     adminModel.find()
 
@@ -96,7 +124,7 @@ router.get("/view_rooms",(req,res)=>{
 
 /*************Route to edit rooms *****************/
 
-router.get("/edit_rooms/:id",(req,res)=>{
+router.get("/edit_rooms/:id",LoggedIn,(req,res)=>{
 
     adminModel.findById(req.params.id)
 
@@ -142,7 +170,7 @@ router.put("/updateRooms/:id",(req,res)=>{
 
 /*************** Route to delete rooms **************/
 
-router.delete("/delete/:id",(req,res)=>{
+router.delete("/delete/:id",LoggedIn,(req,res)=>{
 
     adminModel.deleteOne({_id:req.params.id})
     

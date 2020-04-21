@@ -1,16 +1,22 @@
 <link rel="stylesheet" href="css/room_listing.css">    
  
-    <h1 class="room_listing_heading">{{this.title}}</h1 >
+    
     <div class="container">
      {{#each rooms}}
         <div class="card">
+            <h1 class="room_listing_heading">{{this.Title}}</h1 >   
+            {{!-- <div style="width: 20em;text-align:center;display:block"> --}}
             <img src="/room_pics/{{roomPic}}" width="100%">
+            {{!-- </div> --}}
             {{!-- <img src="/CSS and Images/room_pics/{{roomPic}}" alt="" style="width: 50em;height:50em">  --}}
             <div class="description">
-                <p><span style="font-weight:bold; color:blue">Featured Room:</span>{{this.FeaturedRoom}}</p><i class="fas fa-star"></i>
-                <h2>{{this.Description}}</h2>
+                <span style="font-weight:bold; color:blue">Featured Room: &nbsp;{{this.FeaturedRoom}}</span><i class="fas fa-star"></i>
+                <p style="margin: 3em 0em;font-weight:bold">{{this.Description}}</p>
                 <h4 class="price">Price Per Night: {{this.Price}} $</h4>
-                <a href="/room-listing/delete/{{this.id}}?method=DELETE" class="view_and_mod_btn">Delete</a>
+                <div style="text-align: center;">
+                <a href="/room-listing/edit_rooms/{{this.id}}" class="view_and_mod_btn" id="edit_btn">Edit</a>
+                <a href="/room-listing/delete/{{this.id}}?method=DELETE" class="view_and_mod_btn" id="delete_btn">Delete</a>
+                </div>
             </div>   
         </div>
 
@@ -21,6 +27,10 @@
         <span>{{this.FeaturedRoom}}</span>
         <a href="/room-listing/edit_rooms/{{this.id}}" class="create_btn">Edit</a>
         <a href="/room-listing/delete/{{this.id}}?method=DELETE" class="view_and_mod_btn">Delete</a> --}}
-
+    
     {{/each}}
- 
+    </div>
+
+<div style="text-align: center;margin:2em;font-size:1.5em; font-weight:bold;" >
+     <a href="/room-listing/create_rooms" style="text-decoration:underline;color:brown"> <i class="fas fa-share" style="margin-right:1em;"></i>Create More rooms here!</a>
+</div>     
