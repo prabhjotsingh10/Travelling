@@ -633,9 +633,9 @@ input[type="text"]{
         margin-bottom: 2em;
     }
 
-    .menu_list{
+    /* .menu_list li{
         display: none;
-    }
+    } */
 
     .menu_visible{
         display: block;
